@@ -21,6 +21,14 @@ docker build -t synle/nginx .
 docker run -p 80:80 --name synle/nginx
 ```
 
+### nginx-https
+
+```
+docker build -t synle/nginxhttps .
+docker run -p 8443:8443 --name synle/nginxhttps
+```
+
+
 
 ### php-simple
 
