@@ -21,13 +21,6 @@ docker build -t synle/nginx .
 docker run -p 80:80 --name synle/nginx
 ```
 
-### nginx-https
-
-```
-docker build -t synle/nginxhttps .
-docker run -p 8443:8443 --name synle/nginxhttps
-```
-
 
 
 ### php-simple
@@ -53,16 +46,16 @@ https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repo
     ca-certificates \
     curl \
     software-properties-common
-    
+
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  
+
 sudo add-apt-repository \
    "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
-   
+
  sudo apt-get update
- 
+
  sudo apt-get install docker-ce
 ```
 
