@@ -59,10 +59,13 @@ sudo add-apt-repository \
  sudo apt-get install docker-ce
 ```
 
+```
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
+```
 
 ## Other useful docker
 ### Mysql
 ```
 docker pull mysql
-docker run -p 3306:3306 --name docker-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql
+docker run -p 3306:3306 --name docker-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
 ```
