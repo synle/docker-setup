@@ -69,3 +69,21 @@ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
 docker pull mysql
 docker run -p 3306:3306 --name docker-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
 ```
+
+### For Windows and docker-toolbox
+#### Finding ip / host to use for windows
+```
+ docker-machine ip
+ 192.168.99.100
+```
+
+### To Reference Host in NGINX form Docker Container
+#### For mac
+```
+docker.for.mac.localhost
+```
+
+#### For windows
+```
+docker.for.win.localhost
+```
