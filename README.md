@@ -87,3 +87,9 @@ docker.for.mac.localhost
 ```
 docker.for.win.localhost
 ```
+
+
+### Troubleshooting with Windows
+```
+Look like in windows you can have a docker image name with /, so remove the slash.
+```

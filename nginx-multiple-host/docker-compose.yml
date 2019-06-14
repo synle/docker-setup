@@ -1,0 +1,14 @@
+version: '3'
+services:
+  dockerhost:
+    image: alpine
+    entrypoint: /bin/sh -c "tail -f /dev/null"
+    network_mode: host
+  proxy:
+    image: nginx:alpine
+    links:
+     - dockerhost:dockerhost
+    ports:
+     - "18080:80"
+    volumes:
+     - /share/Container/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
