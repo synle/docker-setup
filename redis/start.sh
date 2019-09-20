@@ -1,4 +1,3 @@
-docker build -t redis-server . && \
-docker run \
+docker run --name some-redis \
   -p 6379:6379 \
-  redis-server
+  -d redis
