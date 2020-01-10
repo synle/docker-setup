@@ -67,3 +67,26 @@ docker.for.win.localhost
 ```
 Look like in windows you can have a docker image name with /, so remove the slash.
 ```
+
+
+### Docker Compose
+#### Command Notes
+```
+docker-compose kill -s SIGINT
+docker-compose up
+```
+
+#### sample docker-compose.yml
+```
+version: '3'
+
+services:
+  nucleus-redis:
+    build: './ops/redis-cache'
+  nucleus-nginx-proxy:
+    ports:
+      - '443:443'
+    build:
+      context: .
+      dockerfile: './ops/nucleus-proxy'
+```
