@@ -90,3 +90,15 @@ services:
       context: .
       dockerfile: './ops/nucleus-proxy'
 ```
+
+
+### Passing Variables to Containers
+```
+docker run --rm -ti --env-file .env  ubuntu
+```
+
+Or Use
+```
+...
+ -e POSTGRES_ENV_POSTGRES_PASSWORD='foo'
+```
