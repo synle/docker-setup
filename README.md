@@ -152,3 +152,10 @@ docker tag `image_id` synle/httpd:version1.0
 ```
 docker run --rm -ti -p 8443:8443 -v /Users/syle/git/my_app:/etc/my_app synle/synle/sy-java-node
 ```
+
+
+
+#### Note on python and stuffs
+```
+apt-get update -y && apt-get install -y libmysqlclient-dev python python-pip libxml2-dev libxslt1-dev curl git
+```
