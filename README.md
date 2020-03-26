@@ -102,3 +102,53 @@ Or Use
 ...
  -e POSTGRES_ENV_POSTGRES_PASSWORD='foo'
 ```
+
+
+
+#### Docker flows
+Start with `image` > then start image as `container`.
+
+#### Commands for Docker images
+```
+docker images
+
+docker rmi `image_id`
+
+# build image from Dockerfile
+docker build -t `image_name` .
+```
+
+
+#### Dockerfile
+Note `ENTRYPOINT` is a run-later command, whereas `CMD` is run instantly.
+```
+FROM synle/sy-java-node
+WORKDIR /etc/my_app
+ENTRYPOINT [ "./gradlew", "bootRun" ]
+EXPOSE 8443
+```
+
+#### Commands for Docker container
+```
+docker ps
+
+# to show all processes even one that exitted
+docker ps -a 
+
+docker rm `container_id`
+
+# commit and update changes to image
+docker commit `container_id` `image_name`
+```
+
+#### Docker hub
+```
+docker login
+docker tag `image_id` synle/httpd:version1.0
+```
+
+
+#### Docker run
+```
+docker run --rm -ti -p 8443:8443 -v /Users/syle/git/my_app:/etc/my_app synle/synle/sy-java-node
+```
