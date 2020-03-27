@@ -162,3 +162,31 @@ apt-get update -y && apt-get install -y libmysqlclient-dev python python-pip lib
 # virtualenv for python
 pip install --user virtualenvwrapper --ignore-installed six
 ```
+
+
+
+#### Notes on docker networks
+```
+# ls networks
+docker network ls
+
+# create network
+docker network create my_network
+
+## deps
+## apt update
+## apt install -y netcat iputils-ping
+
+# term 1
+docker run --rm -ti --net my_network --name catserver ubuntu:latest
+
+# term 2
+docker run --rm -ti --net my_network --name dogserver ubuntu:latest
+
+
+# connect networks
+## docker network create catsonly
+## docker network create catserver
+docker network connect `network_name` `server_name`
+docker network connect catsonly catserver
+```
