@@ -190,3 +190,10 @@ docker run --rm -ti --net my_network --name dogserver ubuntu:latest
 docker network connect `network_name` `server_name`
 docker network connect catsonly catserver
 ```
+
+
+### Docker in a remote host
+More info here: https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow
+```
+export DOCKER_HOST=ssh://syle@pi3
+```
