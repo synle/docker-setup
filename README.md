@@ -207,3 +207,15 @@ static domain_name_servers=1.1.1.1
 ```
 
 Afterward, do `sudo reboot`
+
+
+
+## Docker save and load
+To save to zipped file
+```
+# save
+docker save -o my-archived.tar.gz ubuntu:14.04 alpine:latest
+
+# load
+docker load -i my-archived.tar.gz
+```
