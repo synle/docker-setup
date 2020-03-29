@@ -14,25 +14,19 @@ docker push synle/nginx
 
 ## Set up Dockers
 https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
+
+### Installation for Ubuntu
+```
+curl -fsSL https://get.docker.com -o /tmp/get-docker.sh && \
+sudo sh /tmp/get-docker.sh
 ```
 
- sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
-
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-sudo add-apt-repository \
-   "deb [arch=armhf] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-
- sudo apt-get update
-
- sudo apt-get install docker-ce
+To run without `sudo`, add yourself to `docker` group
 ```
+sudo usermod -aG docker your-user
+```
+
+
 ```
 docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
 ```
