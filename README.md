@@ -26,51 +26,44 @@ To run without `sudo`, add yourself to `docker` group
 sudo usermod -aG docker your-user
 ```
 
-
-```
-docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
-```
-
-## Other useful docker
-### Mysql
-```
-docker pull mysql
-docker run -p 3306:3306 --name docker-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql:latest
-```
-
-### For Windows and docker-toolbox
-#### Finding ip / host to use for windows
+## For Windows and docker-toolbox
+### Finding ip / host to use for windows
 ```
  docker-machine ip
  192.168.99.100
 ```
 
-### To Reference Host in NGINX form Docker Container
-#### For mac
+## To Reference Host in NGINX form Docker Container
+More note can be found here: https://docs.docker.com/docker-for-mac/networking/
+
+### For mac
 ```
-docker.for.mac.localhost
+ docker.for.mac.localhost
 ```
 
-#### For windows
+### For windows
 ```
-docker.for.win.localhost
+ docker.for.win.localhost
+```
+
+### For Linux
+```
+ host.docker.internal
 ```
 
 
 ### Troubleshooting with Windows
-```
-Look like in windows you can have a docker image name with /, so remove the slash.
-```
+- Look like in windows you cannot have a docker image name with /, so remove the slash.
 
 
-### Docker Compose
-#### Command Notes
+## Docker Compose
+### Command Notes
 ```
 docker-compose kill -s SIGINT
 docker-compose up
 ```
 
-#### sample docker-compose.yml
+### sample docker-compose.yml
 ```
 version: '3'
 
@@ -86,12 +79,13 @@ services:
 ```
 
 
-### Passing Variables to Containers
+## Passing Variables to Containers
+### Using `.env` file
 ```
 docker run --rm -ti --env-file .env  ubuntu
 ```
 
-Or Use
+### Using CLI
 ```
 ...
  -e POSTGRES_ENV_POSTGRES_PASSWORD='foo'
@@ -99,10 +93,10 @@ Or Use
 
 
 
-#### Docker flows
+## Docker flows
 Start with `image` > then start image as `container`.
 
-#### Commands for Docker images
+### Commands for Docker images
 ```
 docker images
 
@@ -113,7 +107,7 @@ docker build -t `image_name` .
 ```
 
 
-#### Dockerfile
+### Dockerfile
 Note `ENTRYPOINT` is a run-later command, whereas `CMD` is run instantly.
 ```
 FROM synle/sy-java-node
@@ -122,7 +116,7 @@ ENTRYPOINT [ "./gradlew", "bootRun" ]
 EXPOSE 8443
 ```
 
-#### Commands for Docker container
+### Commands for Docker container
 ```
 docker ps
 
@@ -135,31 +129,28 @@ docker rm `container_id`
 docker commit `container_id` `image_name`
 ```
 
-#### Docker hub
+## Docker hub
 ```
 docker login
 docker tag `image_id` synle/httpd:version1.0
 ```
 
 
-#### Docker run
+## Docker run
 ```
 docker run --rm -ti -p 8443:8443 -v /Users/syle/git/my_app:/etc/my_app synle/synle/sy-java-node
 ```
 
 
 
-#### Note on python and stuffs
+## Note on python and stuffs
 ```
 apt-get update -y && apt-get install -y libmysqlclient-dev python python-pip libxml2-dev libxslt1-dev curl git
-
-# virtualenv for python
-pip install --user virtualenvwrapper --ignore-installed six
 ```
 
 
 
-#### Notes on docker networks
+## Notes on docker networks
 ```
 # ls networks
 docker network ls
@@ -186,7 +177,7 @@ docker network connect catsonly catserver
 ```
 
 
-### Docker in a remote host
+## Docker in a remote host
 More info here: https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow
 ```
 export DOCKER_HOST=ssh://syle@pi3
@@ -194,15 +185,15 @@ export DOCKER_HOST=ssh://syle@pi3
 
 
 
-### Notes on static IP address
-#### OSX
+## Notes on static IP address
+### OSX
 - Go to `System Preference > Network`
 - Choose `Wifi` > `Advanced`
 - Select tab `TCP/IP`, Choose `Using DHCP with manual address`
 - Enter your IP address, make sure it matches the Router Gateway
 
 
-##### On Raspberry Pi (Raspian)
+### On Raspberry Pi (Raspian)
 `vim /etc/dhcpcd.conf`
 
 Choose either wlan0 (for wireless) or eth0 (for ethernet)
@@ -216,5 +207,3 @@ static domain_name_servers=1.1.1.1
 ```
 
 Afterward, do `sudo reboot`
-
-
