@@ -197,3 +197,30 @@ More info here: https://www.digitalocean.com/community/tutorials/how-to-use-a-re
 ```
 export DOCKER_HOST=ssh://syle@pi3
 ```
+
+
+
+### Notes on static IP address
+#### OSX
+- Go to `System Preference > Network`
+- Choose `Wifi` > `Advanced`
+- Select tab `TCP/IP`, Choose `Using DHCP with manual address`
+- Enter your IP address, make sure it matches the Router Gateway
+
+
+##### On Raspberry Pi (Raspian)
+`vim /etc/dhcpcd.conf`
+
+Choose either wlan0 (for wireless) or eth0 (for ethernet)
+
+Note that here we need to match router's IP address and we can set up the DNS server, here I used `1.1.1.1` or (Cloudflare public DNS)
+```
+interface wlan0
+static ip_address=192.168.5.3/24
+static routers=192.168.5.1
+static domain_name_servers=1.1.1.1
+```
+
+Afterward, do `sudo reboot`
+
+
