@@ -219,3 +219,6 @@ docker save -o my-archived.tar.gz ubuntu:14.04 alpine:latest
 # load
 docker load -i my-archived.tar.gz
 ```
+
+## Notes on docker for Windows Sub Linux (WSL)
+https://medium.com/@sebagomez/installing-the-docker-client-on-ubuntus-windows-subsystem-for-linux-612b392a44c4  
