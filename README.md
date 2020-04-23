@@ -222,3 +222,13 @@ docker load -i my-archived.tar.gz
 
 ## Notes on docker for Windows Sub Linux (WSL)
 https://medium.com/@sebagomez/installing-the-docker-client-on-ubuntus-windows-subsystem-for-linux-612b392a44c4  
+```
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common gnupg gnupg2 gnupg1
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/debian \
+   buster \
+   stable"
+sudo apt-get update
+sudo apt-get install -y docker-ce
+```
