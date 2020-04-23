@@ -231,4 +231,7 @@ sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/d
    stable"
 sudo apt-get update
 sudo apt-get install -y docker-ce
+
+# add to bash profile
+export DOCKER_HOST=sy-macpro:2375
 ```
