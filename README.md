@@ -235,3 +235,9 @@ sudo apt-get install -y docker-ce
 # add to bash profile
 export DOCKER_HOST=sy-macpro:2375
 ```
+
+
+## Docker Bash into Container
+```
+docker exec -it 1567c75afbca /bin/bash
+```
