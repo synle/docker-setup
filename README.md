@@ -241,3 +241,18 @@ export DOCKER_HOST=sy-macpro:2375
 ```
 docker exec -it 1567c75afbca /bin/bash
 ```
+
+
+## Allow remote access
+For RPI3, changed service config to add `-H 0.0.0.0:2379`
+File is located in `sudo vim /lib/systemd/system/docker.service`
+
+```
+sudo service docker restart
+
+# reload daemon config
+sudo systemctl daemon-reload
+
+# restart docker
+sudo service docker restart
+```
