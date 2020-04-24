@@ -243,7 +243,8 @@ docker exec -it 1567c75afbca /bin/bash
 ```
 
 
-## Allow remote access
+## Allow remote access to dockerd
+### On Ubuntu / RPI3
 For RPI3, changed service config to add `-H 0.0.0.0:2379`
 File is located in `sudo vim /lib/systemd/system/docker.service`
 
@@ -255,4 +256,17 @@ sudo systemctl daemon-reload
 
 # restart docker
 sudo service docker restart
+```
+
+### On a mac
+https://stackoverflow.com/questions/39411126/access-docker-daemon-remote-api-on-docker-for-mac
+
+Install socat
+```
+brew install socat
+```
+
+forward port
+```
+socat TCP-LISTEN:2375,reuseaddr,fork UNIX-CONNECT:/var/run/docker.sock &
 ```
