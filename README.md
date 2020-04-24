@@ -176,15 +176,6 @@ docker network connect `network_name` `server_name`
 docker network connect catsonly catserver
 ```
 
-
-## Docker in a remote host
-More info here: https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow
-```
-export DOCKER_HOST=ssh://syle@pi3
-```
-
-
-
 ## Notes on static IP address
 ### OSX
 - Go to `System Preference > Network`
@@ -243,8 +234,15 @@ docker exec -it 1567c75afbca /bin/bash
 ```
 
 
-## Allow remote access to dockerd
-### On Ubuntu / RPI3
+
+## Docker in a remote host
+More info here: https://www.digitalocean.com/community/tutorials/how-to-use-a-remote-docker-server-to-speed-up-your-workflow
+```
+export DOCKER_HOST=tcp://192.168.5.2:2375
+```
+
+### Allow remote access to dockerd
+#### On Ubuntu / RPI3
 For RPI3, changed service config to add `-H 0.0.0.0:2379`
 File is located in `sudo vim /lib/systemd/system/docker.service`
 
@@ -258,7 +256,7 @@ sudo systemctl daemon-reload
 sudo service docker restart
 ```
 
-### On a mac
+#### On a mac
 https://stackoverflow.com/questions/39411126/access-docker-daemon-remote-api-on-docker-for-mac
 
 Install socat
